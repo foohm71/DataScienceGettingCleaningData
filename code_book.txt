@@ -1,0 +1,78 @@
+
+Context
+===========
+
+This is processed and tidy-ed data from the original experimental data for wearables found here:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The original data had the following files:
+a. A table of wearables measurements (more on this later)
+b. A corresponding list of activity codes (eg. 1 == WALKING)
+c. A corresponding list of test subject codes (represented by numbers)
+
+The data was split into "test" and "train" - the latter was used to train a ML algorithm and the test data set was used to evaluate the ML. 
+
+The measurements in the original data were described as (see the file "features_info.txt in the data zip file for more info):
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+augmented with:
+
+mean(): Mean value
+std(): Standard deviation
+mad(): Median absolute deviation 
+max(): Largest value in array
+min(): Smallest value in array
+sma(): Signal magnitude area
+energy(): Energy measure. Sum of the squares divided by the number of values. 
+iqr(): Interquartile range 
+entropy(): Signal entropy
+arCoeff(): Autorregresion coefficients with Burg order equal to 4
+correlation(): correlation coefficient between two signals
+maxInds(): index of the frequency component with largest magnitude
+meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+skewness(): skewness of the frequency domain signal 
+kurtosis(): kurtosis of the frequency domain signal 
+bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
+angle(): Angle between to vectors.
+
+So a data set with label "tBodyAcc-X-mean()" would represent the mean values for the tBodyAcc measurement on the X axis.
+
+Data Set Description
+====================
+The data in the data set is processed from this data set. 
+
+The work that was done was:
+a. merged the test and train data sets
+b. added the Subject and Activity columns to correspond with the measurements
+c. Activity data points were converted to labels from code (to be descriptive) 
+d. All columns are labelled (to be descriptive)
+e. From the final data set, we created an independent tidy data set with the average of each variable for each activity and each subject. 
+
+Column Descriptions
+===================
+
+Activity: the activity measured eg. WALKING
+Subject: the test subject code eg. 5 for subject #5
+
+The rest of the columns are for the average measurements for each Activity and Subject pair:
+
+eg. tBodyAcc-mean()-X for Subject = 1 and Activity "WALKING" would be the average value for the tBodyAcc-X mean measurement for Subject 1 in the "WALKING" Activity. 
+
+
